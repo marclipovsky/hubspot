@@ -16,7 +16,7 @@ module Hubspot
       # _n - The EVENT_ID of the event you want to record. You can get an event id in two ways:
       # Log into your Performable account, click Setup, and then click on the event that you wish to record. Finally, click the configuration link to bring up a dialog which shows you the event id.
       # Use your own unique label as the id, and Performable will automatically generate the corresponding event in your account. You can rename it from within the app later if you'd like.
-      # There are also optional parameters:
+      # There are walso optional parameters:
       # 
       # _t - The timestamp of the event (in seconds as a UTC Unix epoch). By default this is ignored - it is used only to help make requests unique and the time that our servers receive the event is used for the timestamp of the event.
       # _d - If equal to the string true, implies that the timestamp sent with this event should be used as the time of completion for this event. The timestamp will be ignored if it represents a future date (within some reason), or is more than a few years old. Servers generating timestamps should use some mechanism (like NTP) for syncing clocks to a reasonable standard. The API expects timestamps are in seconds, but may detect timestamps in milliseconds and attempt to resolve them to seconds.

@@ -29,17 +29,21 @@ module Hubspot
     # Makes a request to the remote service and appends the default parameters
     def request(method, path, *arguments)
       uri = URI.parse(path)
-
+      puts "URI: #{uri}"
       unless arguments.last.is_a?(Hash) && arguments.last.delete('skip_default_parameters')
+        puts "Args: #{arguments}"
         Hubspot::Connection.default_parameters.to_param.tap do |default_parameters|
           if uri.query.present?
             uri.query += '&' + default_parameters
           else
             uri.query = default_parameters
           end
+          puts "Query: #{uri.query}"
         end
       end
       
+      puts "Method: #{method}"
+      puts "uri.to_s: #{uri.to_s}"
       super(method, uri.to_s, *arguments)
     end
        
